@@ -3,6 +3,8 @@ import passport = require("passport");
 import { BearerStrategy, VerifyCallback, IBearerStrategyOption, ITokenPayload } from "passport-azure-ad";
 import qs = require("querystring");
 import Axios from "axios";
+import * as debug from "debug";
+const log = debug("graphRouter");
 
 export const graphRouter = (options: any): express.Router => {
     const router = express.Router();
@@ -65,8 +67,8 @@ export const graphRouter = (options: any): express.Router => {
             try {
                 const accessToken = await exchangeForToken(user.tid,
                     req.header("Authorization")!.replace("Bearer ", "") as string,
-                    ["https://graph.microsoft.com/user.read", "offline_access"]);
-
+                    ["https://graph.microsoft.com/user.read"]);
+                log(accessToken);
                 Axios.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
                     responseType: "arraybuffer",
                     headers: {
