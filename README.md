@@ -13,9 +13,6 @@ In order to get this demo to work you need to create and configure a `.env` file
 # The domain name of where you host your application
 HOSTNAME=<YOUR FQDN>
 PORT=3007
-SECURITY_TOKEN=
-CONNECTOR_ID=
-mpty for anonymous)
 NGROK_AUTH=<YOUR NGROK AUTH SETTINGS>
 NGROK_SUBDOMAIN=<YOUR NGROK SUBDOMAIN>
 NGROK_REGION=
